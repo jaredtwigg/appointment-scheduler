@@ -1,0 +1,86 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  
+  .modal {
+    position: fixed;
+    top: 17vh;
+    left: 13%;
+    width: 70%;
+    z-index: 100;
+    overflow: hidden;
+    background-color: #1c1c1c;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    background: #ff6900;
+    padding: 1rem;
+  }
+  
+  .header h2 {
+    margin: 0;
+    color: white;
+  }
+  
+  .content {
+    padding: 1rem;
+  }
+  
+  .actions {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  form {
+      box-sizing: border-box;
+      justify-content: center;
+  }
+
+  .newEntry__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .newEntry__control label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #fff
+  }
+  
+  .newEntry__control input, .newEntry__control select {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 100%;
+  }
+  
+  .newEntry__actions {
+    text-align: right;
+  }
+  
+  @media (min-width: 768px) {
+    .modal {
+      position: fixed;
+      top:30vh;
+      left: calc(50% - 22rem);
+      width: 44rem;
+      background-color: #1c1c1c;
+      padding: 1.25rem;
+    }
+  }

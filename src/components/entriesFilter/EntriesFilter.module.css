@@ -1,0 +1,28 @@
+.entriesFilter {
+    padding: 0 1rem;
+  }
+  
+  .entriesFilter__control {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .entriesFilter label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .entriesFilter select {
+    font: inherit;
+    padding: 0.25rem;
+    font-weight: bold;
+    background-color: transparent;
+    color: #0adebe;
+    border: none;
+  }
+
+  .entriesFilter select:focus-visible {
+    outline: none;
+  }

@@ -1,0 +1,25 @@
+.entryDate {
+    display: flex;
+    flex-direction: column;
+    width: 5.5rem;
+    height: 5.5rem;
+    color: white;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .entryDate__month {
+    font-size: 1rem;
+    color: #fff
+  }
+  
+  .entryDate__year {
+    font-size: 0.75rem;
+    color: #fff;
+  }
+  
+  .entryDate__day {
+    font-size: 2.25rem;
+    margin-top: -8px;
+    color: #fff;
+  }

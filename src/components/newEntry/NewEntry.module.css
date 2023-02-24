@@ -1,0 +1,38 @@
+.newEntry {
+    padding: 1rem;
+    margin: 2rem auto;
+    width: 50rem;
+    max-width: 95%;
+    text-align: center;
+  }
+  
+  .newEntry button {
+    font: inherit;
+    font-size: 1.75rem;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: 0px solid #000;
+    border-bottom: 3px solid #0adebe;
+    background-color: #1c1c1c;
+    color: white;
+    margin-right: 1rem;
+  }
+  
+  .newEntry button:hover,
+  .newEntry button:active {
+    background-color: #1c1c1c;
+    border-bottom: 5px solid #0adebe;
+    transition: .1s linear;
+    margin-bottom: -2px;
+  }
+  
+  .newEntry button.alternative {
+    color: #220131;
+    border-color: transparent;
+    background-color: transparent;
+  }
+  
+  .newEntry button.alternative:hover,
+  .newEntry button.alternative:active {
+    background-color: #ddb3f8;
+  }
