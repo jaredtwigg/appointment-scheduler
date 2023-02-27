@@ -24,7 +24,7 @@ const Entries = (props) => {
           selected={filterMonth}
           onFilterChange={filterChangeHandler}
         />
-        <EntriesList updateEntry={props.updateEntry} items={filteredEntries} onDelete={props.onDelete} onEdit={props.onEdit}/>
+        <EntriesList confirmUpdate={props.confirmUpdate} updateEntry={props.updateEntry} items={filteredEntries} onDelete={props.onDelete} onEdit={props.onEdit}/>
       </Card>
     </>
   );

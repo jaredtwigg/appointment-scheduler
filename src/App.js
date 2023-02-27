@@ -15,15 +15,28 @@ const App = () => {
     setEntries(entries.filter(entry => entry.id !== itemId));
   }
 
-  const editEntryHandler = (updatedEntry) => {
-    console.log("UE", updatedEntry);
-    // setEntries(entries.map(entry => entry.id === updatedEntry.id ? updatedEntry : entry));
-  }
+  const confirmEditHandler = (updated) => {
+    const edited = entries.map(entry => {
+      if(entry.id === updated.id) {
+        return {
+          ...entry,
+          title: updated.title,
+          location: updated.location,
+          time: updated.time,
+          date: updated.date,
+          id: updated.id
+        }
+      }
+      return entry
+    })
+
+    setEntries(edited);
+  };
 
   return (
     <>
       <NewEntry onAddEntry={addEntryHandler} />
-      <Entries updateEntry={editEntryHandler} item={entries} onDelete={handleDelete} />
+      <Entries confirmUpdate={confirmEditHandler} item={entries} onDelete={handleDelete} />
     </>
   );
 }

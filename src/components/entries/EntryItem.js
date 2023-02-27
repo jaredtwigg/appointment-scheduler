@@ -15,7 +15,7 @@ const EntryItem = (props) => {
                     <div className={classes.entryItem__icons} onClick={() => props.onEdit(props.id)}><FiEdit /></div>
                     <div className={classes.entryItem__icons} onClick={() => props.onDelete(props.id)}><FiTrash2 /></div>
                 </div>
-                <div className={classes.entryItem__price}>{props.time} {props.meridian} | {props.location}</div>
+                <div className={classes.entryItem__details}>{props.time} {props.meridian} | {props.location}</div>
             </div>
             </Card>
         </li>

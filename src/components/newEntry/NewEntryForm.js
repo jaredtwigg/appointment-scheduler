@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ErrorModal from "../UI/ErrorModal";
 import classes from "./NewEntryForm.module.css";
 
 const NewEntryForm = (props) => {
@@ -7,6 +8,7 @@ const NewEntryForm = (props) => {
   const [location, setLocation] = useState("");
   const [time, setTime] = useState("");
   const [meridian, setMeridian] =useState("");
+  const [error, setError] = useState();
 
   const titleChangeHandler = (event) => {
     setTitle(event.target.value);
@@ -32,6 +34,38 @@ const NewEntryForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
+    if(title.trim().length === 0) {
+      setError({
+        title: "Description Required",
+        message: "Please enter a description."
+      })
+      return
+    };
+
+    if(location.length === 0) {
+      setError({
+        title: "Location Required",
+        message: "Please select a location."
+      })
+      return
+    };
+
+    if(time.length === 0) {
+      setError({
+        title: "Time Required",
+        message: "Please select a time."
+      })
+      return
+    };
+
+    if(date.length === 0) {
+      setError({
+        title: "Date Required",
+        message: "Please select a date."
+      })
+      return
+    };
+
     const entryData = {
       title: title,
       location: location,
@@ -45,9 +79,22 @@ const NewEntryForm = (props) => {
     setTitle("");
     setLocation("");
     setDate("");
+    setTime("");
   };
 
+  const confirmErrorHandler = () => {
+    setError(null);
+  }
+
   return (
+    <>
+    {error && (
+        <ErrorModal
+          title={error.title}
+          message={error.message}
+          onConfirm={confirmErrorHandler}
+        />
+      )}
     <form onSubmit={submitHandler}>
       <div className={classes.newEntry__controls}>
         <div className={classes.newEntry__control}>
@@ -95,6 +142,7 @@ const NewEntryForm = (props) => {
         <button type="submit">Add Entry</button>
       </div>
     </form>
+    </>
   )
 };
 

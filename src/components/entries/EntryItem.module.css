@@ -13,7 +13,6 @@
     flex-direction: column;
     gap: 0.25rem;
     align-items: start;
-    /* flex-flow: column-reverse; */
     justify-content: flex-start;
     flex: 1;
   }
@@ -31,14 +30,10 @@
     color: white;
   }
   
-  .entryItem__price {
+  .entryItem__details {
     font-size: 1rem;
-    /* font-weight: bold; */
     color: white;
-    /* background-color: #40005d; */
-    /* border: 1px solid white; */
     padding: 0 1rem;
-    /* border-radius: 12px; */
   }
   
   .entryItem__icons {
@@ -67,7 +62,7 @@
       color: #fff
     }
   
-    .entryItem__price {
+    .entryItem__details {
       font-size: 1.25rem;
       padding: 0rem 1.0rem;
       color: #6f6f6f;

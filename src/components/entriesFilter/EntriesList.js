@@ -9,6 +9,7 @@ const EntriesList = (props) => {
   const [title, setTitle] = useState();
   const [location, setLocation] = useState();
   const [time, setTime] = useState();
+  const [meridian, setMeridian] = useState();
   const [date, setDate] = useState();
   const [id, setId] = useState();
 
@@ -16,17 +17,36 @@ const EntriesList = (props) => {
       return <h2 className={classes.entriesList__fallback}>Nothing scheduled.</h2>
   }
 
-  const confirmEditHandler = () => {
+  const cancelEditHandler = () => {
     setEdit(null);
   };
+
+  const confirmEditHandler = () => {
+    setEdit(null);
+  }
 
   const handleEdit = (itemId) => {
     props.items.map(entry => {
       if(entry.id === itemId) {
+        const timeSplit = entry.time.split(":");
+        let hours = timeSplit[0];
+        const minutes = timeSplit[1];
+
+        let newHours
+
+        if(entry.meridian === "pm") {
+          newHours = +hours + 12;
+        } else {
+          newHours = hours.padStart(2, '0');
+        }
+
+        const formattedDate = entry.date.getFullYear().toString().padStart(4, "0") + "-" + (entry.date.getMonth()+1).toString().padStart(2, "0") + "-" + (entry.date.getDate()+1).toString().padStart(2, "0");
+
         setTitle(entry.title)
         setLocation(entry.location)
-        setTime(entry.time)
-        setDate(entry.date)
+        setTime(newHours + ":" + minutes)
+        setMeridian(entry.meridian)
+        setDate(formattedDate)
         setId(entry.id)
 
       }
@@ -44,8 +64,10 @@ const EntriesList = (props) => {
           time={time}
           date={date}
           id={id}
+          meridian={meridian}
+          onCancel={cancelEditHandler}
           onConfirm={confirmEditHandler}
-          updateEntry={props.updateEntry}
+          confirmUpdate={props.confirmUpdate}
         />
       )}
       <ul className={classes.entriesList}>
