@@ -23,6 +23,7 @@ const App = () => {
           title: updated.title,
           location: updated.location,
           time: updated.time,
+          meridian: updated.meridian,
           date: updated.date,
           id: updated.id
         }

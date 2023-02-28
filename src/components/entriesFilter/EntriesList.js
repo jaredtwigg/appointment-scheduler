@@ -40,6 +40,11 @@ const EntriesList = (props) => {
           newHours = hours.padStart(2, '0');
         }
 
+        if(+newHours > 23) {
+          newHours = "00"
+          setMeridian("am")
+        }
+
         const formattedDate = entry.date.getFullYear().toString().padStart(4, "0") + "-" + (entry.date.getMonth()+1).toString().padStart(2, "0") + "-" + (entry.date.getDate()+1).toString().padStart(2, "0");
 
         setTitle(entry.title)

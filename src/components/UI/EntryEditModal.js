@@ -37,9 +37,11 @@ const EditModalOverlay = (props) => {
     let hours = timeSplit[0];
     let minutes = timeSplit[1];
 
+    const assureMeridian = hours >= 12 ? 'pm' : 'am';
+
+    setMeridian(assureMeridian);
+
     const newTime = (hours % 12 ? 0 + hours % 12 : 12) + ":" + minutes;
-    
-    setMeridian(hours >= 12 ? 'pm' : 'am');
 
     const id = props.id;
 
@@ -48,7 +50,7 @@ const EditModalOverlay = (props) => {
         title: title, 
         location: location, 
         time: newTime,
-        meridian: meridian, 
+        meridian: assureMeridian, 
         date: new Date(date) 
     };
 
